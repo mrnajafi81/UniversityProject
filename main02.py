@@ -3,7 +3,13 @@ from modules.file import getFileContents
 
 fileContents = getFileContents()
 fileHeader = fileContents.pop(0)
-length = int(input("enter password length : "))
+
+while True:
+    try:
+        length = int(input("Enter password length : "))
+        break
+    except ValueError:
+        print('Invalin input, Please enter a number!!')
 
 file = open(f"randomPass_{length}.txt", "w")
 file.write(f"{'username':10}\tpassword\n")
